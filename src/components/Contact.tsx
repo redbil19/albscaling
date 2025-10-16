@@ -10,20 +10,20 @@ export const Contact = () => {
     {
       icon: Phone,
       label: t.contact.phone,
-      values: ['+44 7415 273388', '+355 69 279 5650'],
-      href: 'tel:+447415273388',
+      values: [
+        { number: '+44 7415 273388', href: 'tel:+447415273388' },
+        { number: '+355 69 279 5650', href: 'tel:+355692795650' },
+      ],
     },
     {
       icon: Mail,
       label: t.contact.email,
-      values: ['alb.scaling@gmail.com'],
-      href: 'mailto:alb.scaling@gmail.com',
+      values: [{ text: 'alb.scaling@gmail.com', href: 'mailto:alb.scaling@gmail.com' }],
     },
     {
       icon: Instagram,
       label: t.contact.instagram,
-      values: ['@alb.scaling'],
-      href: 'https://instagram.com/alb.scaling',
+      values: [{ text: '@alb.scaling', href: 'https://instagram.com/alb.scaling' }],
     },
   ];
 
@@ -54,12 +54,12 @@ export const Contact = () => {
                     {item.values.map((value, i) => (
                       <a
                         key={i}
-                        href={item.href}
+                        href={value.href}
                         target={item.icon === Instagram ? '_blank' : undefined}
                         rel={item.icon === Instagram ? 'noopener noreferrer' : undefined}
                         className="block text-lg font-medium hover:text-primary transition-colors"
                       >
-                        {value}
+                        {value.number || value.text}
                       </a>
                     ))}
                   </div>
