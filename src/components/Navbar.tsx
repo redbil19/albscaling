@@ -29,38 +29,46 @@ export const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md border-b border-gray-200'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <button onClick={() => scrollToSection('hero')} className="flex items-center gap-3">
-            <img src={logo} alt="AlbScaling" className="h-14 w-auto drop-shadow-lg brightness-110" />
+            <img
+              src={logo}
+              alt="AlbScaling"
+              className={`h-14 w-auto drop-shadow-xl transition-all duration-300 ${
+                isScrolled ? 'brightness-125 contrast-125' : 'brightness-100'
+              }`}
+            />
           </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
             >
               {t.nav.home}
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
             >
               {t.nav.services}
             </button>
             <button
               onClick={() => scrollToSection('portfolio')}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
             >
               {t.nav.portfolio}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
             >
               {t.nav.contact}
             </button>
@@ -82,29 +90,29 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
+          <div className="md:hidden py-4 border-t border-gray-200 animate-fade-in">
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection('hero')}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
+                className="text-sm font-medium text-gray-900 hover:text-primary transition-colors text-left"
               >
                 {t.nav.home}
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
+                className="text-sm font-medium text-gray-900 hover:text-primary transition-colors text-left"
               >
                 {t.nav.services}
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
+                className="text-sm font-medium text-gray-900 hover:text-primary transition-colors text-left"
               >
                 {t.nav.portfolio}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
+                className="text-sm font-medium text-gray-900 hover:text-primary transition-colors text-left"
               >
                 {t.nav.contact}
               </button>
