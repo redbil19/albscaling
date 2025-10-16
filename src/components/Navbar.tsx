@@ -30,8 +30,8 @@ export const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-gray-200'
-          : 'bg-transparent'
+          ? 'bg-transparent border-none'
+          : 'bg-white/95 backdrop-blur-md border-b border-gray-200'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -41,7 +41,7 @@ export const Navbar = () => {
               src={logo}
               alt="AlbScaling"
               className={`h-14 w-auto drop-shadow-xl transition-all duration-300 ${
-                isScrolled ? 'brightness-125 contrast-125' : 'brightness-100'
+                isScrolled ? 'brightness-125 contrast-125' : 'brightness-110'
               }`}
             />
           </button>
