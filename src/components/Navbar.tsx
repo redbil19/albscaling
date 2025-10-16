@@ -30,8 +30,8 @@ export const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-transparent border-none'
-          : 'bg-white/95 backdrop-blur-md border-b border-gray-200'
+          ? 'bg-white/95 backdrop-blur-md border-b border-gray-200'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -50,25 +50,33 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
+              }`}
             >
               {t.nav.home}
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
+              }`}
             >
               {t.nav.services}
             </button>
             <button
               onClick={() => scrollToSection('portfolio')}
-              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
+              }`}
             >
               {t.nav.portfolio}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
+              }`}
             >
               {t.nav.contact}
             </button>
@@ -90,29 +98,41 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 animate-fade-in">
+          <div
+            className={`md:hidden py-4 border-t animate-fade-in ${
+              isScrolled ? 'border-gray-200' : 'border-white'
+            }`}
+          >
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection('hero')}
-                className="text-sm font-medium text-gray-900 hover:text-primary transition-colors text-left"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
+                } text-left`}
               >
                 {t.nav.home}
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className="text-sm font-medium text-gray-900 hover:text-primary transition-colors text-left"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
+                } text-left`}
               >
                 {t.nav.services}
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className="text-sm font-medium text-gray-900 hover:text-primary transition-colors text-left"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
+                } text-left`}
               >
                 {t.nav.portfolio}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-sm font-medium text-gray-900 hover:text-primary transition-colors text-left"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
+                } text-left`}
               >
                 {t.nav.contact}
               </button>
