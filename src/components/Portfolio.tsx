@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import portfolio1 from '@/assets/portfolio-1.jpg';
 import portfolio2 from '@/assets/portfolio-2.png';
 import portfolio3 from '@/assets/portfolio-3.jpg';
+import portfolio4 from '@/assets/portfolio-4.jpeg';
 
 export const Portfolio = () => {
   const { t } = useLanguage();
@@ -27,13 +28,21 @@ export const Portfolio = () => {
       url: 'https://spekterreklama.vercel.app',
       image: portfolio3,
     },
+    {
+      title: 'Blueprint Real Estate',
+      description: 'Modern real estate solutions with a focus on quality and trust',
+      url: 'https://www.blueprintrealestate.al/',
+      image: portfolio4,
+    },
   ];
 
   return (
     <section id="portfolio" className="py-24 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.portfolio.title}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            {t.portfolio.title}
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t.portfolio.subtitle}
           </p>
@@ -46,19 +55,22 @@ export const Portfolio = () => {
               className="group relative overflow-hidden rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in h-[400px]"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <img 
-                src={project.image} 
+              <img
+                src={project.image}
                 alt={project.title}
                 className="absolute inset-0 w-full h-full object-cover brightness-75 group-hover:brightness-90 group-hover:scale-105 transition-all duration-500"
               />
+
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-              
+
               <div className="relative p-8 h-full flex flex-col justify-end">
                 <div className="mb-4">
                   <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-foreground/80 text-sm">{project.description}</p>
+                  <p className="text-foreground/80 text-sm">
+                    {project.description}
+                  </p>
                 </div>
-                
+
                 <Button
                   variant="hero"
                   size="sm"
