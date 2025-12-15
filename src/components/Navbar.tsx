@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LanguageToggle } from '@/components/LanguageToggle';
@@ -11,131 +11,131 @@ export const Navbar = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
   };
 
+  const linkClass = isScrolled
+    ? 'text-sm font-medium text-gray-900/80 hover:text-gray-900 transition-colors'
+    : 'text-sm font-medium text-white/85 hover:text-white transition-colors';
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-gray-200'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <button onClick={() => scrollToSection('hero')} className="flex items-center gap-3">
+    <nav className="fixed top-0 left-0 right-0 z-50">
+      {/* Background */}
+      <div
+        className={`absolute inset-0 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/70 backdrop-blur-xl border-b border-white/20'
+            : 'bg-transparent'
+        }`}
+      />
+
+      <div className="relative container mx-auto px-6">
+        <div className="flex h-20 items-center justify-between">
+          {/* Logo */}
+          <button onClick={() => scrollToSection('hero')} className="relative">
+            {/* subtle glow ONLY on top so dark logo is visible on dark hero */}
+            {!isScrolled && (
+              <span className="absolute -inset-2 rounded-2xl bg-white/10 blur-xl" />
+            )}
+
             <img
               src={logo}
               alt="AlbScaling"
-              className={`h-14 w-auto drop-shadow-xl transition-all duration-300 ${
-                isScrolled ? 'brightness-125 contrast-125' : 'brightness-110'
+              className={`relative h-12 md:h-14 w-auto transition-all duration-300 ${
+                isScrolled ? 'opacity-100' : 'opacity-95'
               }`}
             />
           </button>
 
-          {/* Desktop Menu */}
+          {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className={`text-sm font-medium transition-colors ${
-                isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
-              }`}
-            >
+            <button onClick={() => scrollToSection('hero')} className={linkClass}>
               {t.nav.home}
             </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className={`text-sm font-medium transition-colors ${
-                isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
-              }`}
-            >
+            <button onClick={() => scrollToSection('services')} className={linkClass}>
               {t.nav.services}
             </button>
-            <button
-              onClick={() => scrollToSection('portfolio')}
-              className={`text-sm font-medium transition-colors ${
-                isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
-              }`}
-            >
+            <button onClick={() => scrollToSection('portfolio')} className={linkClass}>
               {t.nav.portfolio}
             </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className={`text-sm font-medium transition-colors ${
-                isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
-              }`}
-            >
+            <button onClick={() => scrollToSection('contact')} className={linkClass}>
               {t.nav.contact}
             </button>
+
             <LanguageToggle />
+
+            <Button
+              variant="hero"
+              size="sm"
+              className="rounded-full px-6"
+              onClick={() => scrollToSection('contact')}
+            >
+              {t.nav.contact}
+            </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          {/* Mobile */}
+          <div className="md:hidden flex items-center gap-3">
             <LanguageToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            <button
+              onClick={() => setIsMobileMenuOpen((v) => !v)}
+              className={isScrolled ? 'text-gray-900' : 'text-white'}
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
-            </Button>
+            </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu */}
         {isMobileMenuOpen && (
           <div
-            className={`md:hidden py-4 border-t animate-fade-in ${
-              isScrolled ? 'border-gray-200' : 'border-white'
+            className={`md:hidden mt-2 rounded-2xl p-4 shadow-xl transition-all ${
+              isScrolled
+                ? 'bg-white/90 backdrop-blur-xl'
+                : 'bg-black/40 backdrop-blur-xl'
             }`}
           >
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-sm font-medium transition-colors ${
-                  isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
-                } text-left`}
+                className={isScrolled ? 'text-gray-900' : 'text-white'}
               >
                 {t.nav.home}
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className={`text-sm font-medium transition-colors ${
-                  isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
-                } text-left`}
+                className={isScrolled ? 'text-gray-900' : 'text-white'}
               >
                 {t.nav.services}
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className={`text-sm font-medium transition-colors ${
-                  isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
-                } text-left`}
+                className={isScrolled ? 'text-gray-900' : 'text-white'}
               >
                 {t.nav.portfolio}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className={`text-sm font-medium transition-colors ${
-                  isScrolled ? 'text-gray-900 hover:text-primary' : 'text-white hover:text-primary'
-                } text-left`}
+                className={isScrolled ? 'text-gray-900' : 'text-white'}
               >
                 {t.nav.contact}
               </button>
+
+              <Button
+                variant="hero"
+                className="mt-2 rounded-full"
+                onClick={() => scrollToSection('contact')}
+              >
+                {t.nav.contact}
+              </Button>
             </div>
           </div>
         )}
