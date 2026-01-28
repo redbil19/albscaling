@@ -39,17 +39,15 @@ export const Navbar = () => {
       <div className="relative container mx-auto px-6">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <button onClick={() => scrollToSection('hero')} className="relative">
-            {/* subtle glow ONLY on top so dark logo is visible on dark hero */}
+          <button onClick={() => scrollToSection('hero')} className="relative group">
             {!isScrolled && (
-              <span className="absolute -inset-2 rounded-2xl bg-white/10 blur-xl" />
+              <span className="absolute -inset-3 rounded-xl bg-white/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             )}
-
             <img
               src={logo}
               alt="AlbScaling"
-              className={`relative h-12 md:h-14 w-auto transition-all duration-300 ${
-                isScrolled ? 'opacity-100' : 'opacity-95'
+              className={`relative h-12 md:h-14 w-auto transition-all duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] ${
+                isScrolled ? 'opacity-100 brightness-100 drop-shadow-none' : 'opacity-100 brightness-110'
               }`}
             />
           </button>
@@ -72,9 +70,8 @@ export const Navbar = () => {
             <LanguageToggle />
 
             <Button
-              variant="hero"
               size="sm"
-              className="rounded-full px-6"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-6 transition-all duration-300"
               onClick={() => scrollToSection('contact')}
             >
               {t.nav.contact}
@@ -106,32 +103,32 @@ export const Navbar = () => {
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={isScrolled ? 'text-gray-900' : 'text-white'}
+                className={isScrolled ? 'text-gray-900 font-medium' : 'text-white font-medium'}
               >
                 {t.nav.home}
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className={isScrolled ? 'text-gray-900' : 'text-white'}
+                className={isScrolled ? 'text-gray-900 font-medium' : 'text-white font-medium'}
               >
                 {t.nav.services}
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className={isScrolled ? 'text-gray-900' : 'text-white'}
+                className={isScrolled ? 'text-gray-900 font-medium' : 'text-white font-medium'}
               >
                 {t.nav.portfolio}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className={isScrolled ? 'text-gray-900' : 'text-white'}
+                className={isScrolled ? 'text-gray-900 font-medium' : 'text-white font-medium'}
               >
                 {t.nav.contact}
               </button>
 
               <Button
-                variant="hero"
-                className="mt-2 rounded-full"
+                size="sm"
+                className="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold w-full"
                 onClick={() => scrollToSection('contact')}
               >
                 {t.nav.contact}

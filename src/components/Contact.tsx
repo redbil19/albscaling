@@ -1,4 +1,4 @@
-import { Phone, Mail, Instagram, Globe } from 'lucide-react';
+import { Phone, Mail, Instagram, ArrowRight, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import globalReach from '@/assets/global-reach.jpg';
@@ -28,66 +28,103 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.contact.title}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+    <section id="contact" className="py-24 relative overflow-hidden bg-black">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-20 space-y-4">
+          <h2 className="text-5xl md:text-6xl font-black text-white leading-tight">
+            Let's Talk
+            <br />
+            About Your
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+              Next Big Move
+            </span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
             {t.contact.subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in">
-            {contactItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="group flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
-                    <Icon className="h-6 w-6 text-foreground" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-muted-foreground mb-2">{item.label}</p>
-                    {item.values.map((value, i) => (
-                      <a
-                        key={i}
-                        href={value.href}
-                        target={item.icon === Instagram ? '_blank' : undefined}
-                        rel={item.icon === Instagram ? 'noopener noreferrer' : undefined}
-                        className="block text-lg font-medium hover:text-primary transition-colors"
-                      >
-                        {value.number || value.text}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+        <div className="grid md:grid-cols-2 gap-12 items-stretch">
+          {/* Contact Info */}
+          <div className="space-y-6">
+            {/* Contact cards */}
+            <div className="space-y-4 mb-8">
+              {contactItems.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={index}
+                    href={item.values[0].href}
+                    className="group block p-6 rounded-2xl bg-slate-900/50 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors duration-300 flex-shrink-0">
+                        <Icon className="w-6 h-6 text-blue-400" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-xs font-bold text-white/60 uppercase tracking-wider mb-2">
+                          {item.label}
+                        </p>
+                        <div className="space-y-1">
+                          {item.values.map((value, i) => (
+                            <p key={i} className="text-white font-semibold group-hover:text-blue-300 transition-colors duration-300">
+                              {value.number || value.text}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0 mt-1" />
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
 
+            {/* CTA Button */}
             <Button
-              variant="accent"
               size="lg"
-              className="w-full"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-600/50 transition-all duration-300 hover:shadow-blue-500/75 py-6 text-base"
               onClick={() => window.location.href = 'mailto:alb.scaling@gmail.com'}
             >
-              <Mail className="mr-2 h-5 w-5" />
-              Send us an email
+              <Send className="mr-2 h-5 w-5" />
+              Send us a message
             </Button>
+
+            {/* Additional info */}
+            <div className="p-6 rounded-2xl bg-blue-500/10 border border-blue-500/30">
+              <h4 className="font-bold text-white mb-2">Quick Response</h4>
+              <p className="text-sm text-white/70">
+                We typically respond within 24 hours. Let's discuss your goals.
+              </p>
+            </div>
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden h-[500px] animate-fade-in">
+          {/* Image Section */}
+          <div className="relative rounded-3xl overflow-hidden h-96 md:h-full min-h-[500px] group">
             <img
               src={globalReach}
               alt="Global Reach"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover brightness-40 group-hover:brightness-50 group-hover:scale-110 transition-all duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent flex items-center justify-center">
-              <div className="text-center p-8">
-                <Globe className="h-16 w-16 text-primary mx-auto mb-4 animate-glow-pulse" />
-                <p className="text-2xl font-bold">{t.footer.tagline}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+
+            {/* Floating content */}
+            <div className="absolute inset-0 flex flex-col justify-between p-8">
+              {/* Top accent */}
+              <div className="flex justify-end">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 border border-blue-500/40" />
+              </div>
+
+              {/* Bottom content */}
+              <div className="space-y-4">
+                <h3 className="text-4xl font-black text-white">
+                  Global <span className="text-blue-400">Reach</span>
+                </h3>
+                <p className="text-white/80 text-lg max-w-xs">
+                  We work with businesses worldwide. Time zone? No problem.
+                </p>
               </div>
             </div>
           </div>
