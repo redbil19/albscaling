@@ -15,6 +15,24 @@ interface Translations {
       subtitle: string;
       cta: string;
       ctaSecondary: string;
+      benefits: {
+        growth: {
+          title: string;
+          description: string;
+        };
+        dataDriven: {
+          title: string;
+          description: string;
+        };
+        expertise: {
+          title: string;
+          description: string;
+        };
+      };
+      stats: {
+        projects: string;
+        growth: string;
+      };
     };
     services: {
       title: string;
@@ -40,6 +58,32 @@ interface Translations {
       title: string;
       subtitle: string;
       viewWebsite: string;
+      projects: {
+        motiv: {
+          title: string;
+          description: string;
+        };
+        tenda: {
+          title: string;
+          description: string;
+        };
+        spekter: {
+          title: string;
+          description: string;
+        };
+        blueprint: {
+          title: string;
+          description: string;
+        };
+        fitness: {
+          title: string;
+          description: string;
+        };
+        kbv: {
+          title: string;
+          description: string;
+        };
+      };
     };
     contact: {
       title: string;
@@ -65,6 +109,24 @@ interface Translations {
       subtitle: string;
       cta: string;
       ctaSecondary: string;
+      benefits: {
+        growth: {
+          title: string;
+          description: string;
+        };
+        dataDriven: {
+          title: string;
+          description: string;
+        };
+        expertise: {
+          title: string;
+          description: string;
+        };
+      };
+      stats: {
+        projects: string;
+        growth: string;
+      };
     };
     services: {
       title: string;
@@ -90,6 +152,32 @@ interface Translations {
       title: string;
       subtitle: string;
       viewWebsite: string;
+      projects: {
+        motiv: {
+          title: string;
+          description: string;
+        };
+        tenda: {
+          title: string;
+          description: string;
+        };
+        spekter: {
+          title: string;
+          description: string;
+        };
+        blueprint: {
+          title: string;
+          description: string;
+        };
+        fitness: {
+          title: string;
+          description: string;
+        };
+        kbv: {
+          title: string;
+          description: string;
+        };
+      };
     };
     contact: {
       title: string;
@@ -118,6 +206,24 @@ const translations: Translations = {
       subtitle: 'We empower businesses worldwide with cutting-edge branding, web development, and digital marketing solutions.',
       cta: 'Get Started',
       ctaSecondary: 'View Portfolio',
+      benefits: {
+        growth: {
+          title: 'Rapid Growth',
+          description: 'See results in weeks, not months',
+        },
+        dataDriven: {
+          title: 'Data-Driven',
+          description: 'Strategic approach backed by analytics',
+        },
+        expertise: {
+          title: 'Expert Team',
+          description: 'Industry veterans with proven track records',
+        },
+      },
+      stats: {
+        projects: 'Projects Scaled',
+        growth: 'Growth Average',
+      },
     },
     services: {
       title: 'Our Services',
@@ -143,6 +249,32 @@ const translations: Translations = {
       title: 'Our Portfolio',
       subtitle: 'Proven results for businesses across industries',
       viewWebsite: 'View Website',
+      projects: {
+        motiv: {
+          title: 'Motiv Reklama',
+          description: 'Professional advertising and creative marketing solutions',
+        },
+        tenda: {
+          title: 'Tenda Dielli Tani',
+          description: 'Premium tent and outdoor solutions since 2001',
+        },
+        spekter: {
+          title: 'Spekter Reklama',
+          description: 'Full-spectrum advertising and branding services',
+        },
+        blueprint: {
+          title: 'Blueprint Real Estate',
+          description: 'Modern real estate solutions with a focus on quality and trust',
+        },
+        fitness: {
+          title: 'FitnessBodystyle',
+          description: 'Premium gym and fitness solutions with professional coaching',
+        },
+        kbv: {
+          title: 'KBVllaznia',
+          description: 'Sports club website with fixture management and news system',
+        },
+      },
     },
     contact: {
       title: 'Let\'s Scale Together',
@@ -168,6 +300,24 @@ const translations: Translations = {
       subtitle: 'Ne fuqizojmë bizneset në të gjithë botën me zgjidhje të avancuara në branding, zhvillim web dhe marketing dixhital.',
       cta: 'Filloni Tani',
       ctaSecondary: 'Shikoni Portofolet',
+      benefits: {
+        growth: {
+          title: 'Rritje e Shpejtë',
+          description: 'Shiko rezultatet në javë, jo muaj',
+        },
+        dataDriven: {
+          title: 'Bazuar në të Dhëna',
+          description: 'Qasja strategjike e mbështetur nga analitika',
+        },
+        expertise: {
+          title: 'Ekipi i Ekspertëve',
+          description: 'Veteranë industrieje me regjistrime të provuara',
+        },
+      },
+      stats: {
+        projects: 'Projekte të Shkallëzuara',
+        growth: 'Mesatare Rritjeje',
+      },
     },
     services: {
       title: 'Shërbimet Tona',
@@ -193,6 +343,32 @@ const translations: Translations = {
       title: 'Portofoli Jonë',
       subtitle: 'Rezultate të vërtetuara për biznese në të gjitha industritë',
       viewWebsite: 'Shiko Faqen',
+      projects: {
+        motiv: {
+          title: 'Motiv Reklama',
+          description: 'Zgjidhje profesionale të reklamimit dhe marketing-u kreatív',
+        },
+        tenda: {
+          title: 'Tenda Dielli Tani',
+          description: 'Zgjidhje premium të tendave dhe aktiviteteve të jashtme që nga 2001',
+        },
+        spekter: {
+          title: 'Spekter Reklama',
+          description: 'Shërbimet e reklamimit dhe branding-ut me spektër të plotë',
+        },
+        blueprint: {
+          title: 'Blueprint Real Estate',
+          description: 'Zgjidhje moderne të pasurive të paluajtshme me fokus në cilësi dhe besim',
+        },
+        fitness: {
+          title: 'FitnessBodystyle',
+          description: 'Zgjidhje premium të palestër dhe fitnessi me trajnim profesional',
+        },
+        kbv: {
+          title: 'KBVllaznia',
+          description: 'Faqja e klubit sportiv me menaxhimin e ndeshjes dhe sistemin e lajmeve',
+        },
+      },
     },
     contact: {
       title: 'Le të Rriten Së Bashku',

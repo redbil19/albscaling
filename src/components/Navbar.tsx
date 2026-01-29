@@ -32,22 +32,21 @@ export const Navbar = () => {
         className={`absolute inset-0 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/70 backdrop-blur-xl border-b border-white/20'
-            : 'bg-transparent'
+            : 'bg-black/40 backdrop-blur-lg border-b border-white/10'
         }`}
       />
 
       <div className="relative container mx-auto px-6">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <button onClick={() => scrollToSection('hero')} className="relative group">
-            {!isScrolled && (
-              <span className="absolute -inset-3 rounded-xl bg-white/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            )}
+          <button onClick={() => scrollToSection('hero')} className="relative group flex items-center gap-2">
             <img
               src={logo}
               alt="AlbScaling"
-              className={`relative h-12 md:h-14 w-auto transition-all duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] ${
-                isScrolled ? 'opacity-100 brightness-100 drop-shadow-none' : 'opacity-100 brightness-110'
+              className={`h-12 md:h-14 w-auto transition-all duration-300 brightness-0 invert ${
+                isScrolled 
+                  ? 'opacity-100' 
+                  : 'opacity-100 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'
               }`}
             />
           </button>
