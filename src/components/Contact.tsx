@@ -28,7 +28,7 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-black">
+    <section id="contact" className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-20 space-y-4">
@@ -37,7 +37,7 @@ export const Contact = () => {
             <br />
             About Your
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
               Next Big Move
             </span>
           </h2>
@@ -57,7 +57,7 @@ export const Contact = () => {
                   <a
                     key={index}
                     href={item.values[0].href}
-                    className="group block p-6 rounded-2xl bg-slate-900/50 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
+                    className="group block p-6 rounded-2xl bg-slate-900/50 border border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 backdrop-blur-sm"
                   >
                     <div className="flex items-start gap-4">
                       <div className="p-3 rounded-lg bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors duration-300 flex-shrink-0">
@@ -85,7 +85,7 @@ export const Contact = () => {
             {/* CTA Button */}
             <Button
               size="lg"
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-600/50 transition-all duration-300 hover:shadow-blue-500/75 py-6 text-base"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 py-6 text-base"
               onClick={() => window.location.href = 'mailto:alb.scaling@gmail.com'}
             >
               <Send className="mr-2 h-5 w-5" />
@@ -102,7 +102,7 @@ export const Contact = () => {
           </div>
 
           {/* Image Section */}
-          <div className="relative rounded-3xl overflow-hidden h-96 md:h-full min-h-[500px] group">
+          <div className="relative rounded-3xl overflow-hidden h-96 md:h-full min-h-[500px] group shadow-2xl">
             <img
               src={globalReach}
               alt="Global Reach"

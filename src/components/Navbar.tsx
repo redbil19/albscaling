@@ -11,7 +11,7 @@ export const Navbar = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    const onScroll = () => setIsScrolled(window.scrollY > 200);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -22,8 +22,8 @@ export const Navbar = () => {
   };
 
   const linkClass = isScrolled
-    ? 'text-sm font-medium text-gray-900/80 hover:text-gray-900 transition-colors'
-    : 'text-sm font-medium text-white/85 hover:text-white transition-colors';
+    ? 'text-sm font-semibold text-gray-800 hover:text-blue-600 transition-colors'
+    : 'text-sm font-semibold text-white hover:text-blue-200 transition-colors';
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
@@ -31,8 +31,8 @@ export const Navbar = () => {
       <div
         className={`absolute inset-0 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/70 backdrop-blur-xl border-b border-white/20'
-            : 'bg-black/40 backdrop-blur-lg border-b border-white/10'
+            ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg'
+            : 'bg-black/30 backdrop-blur-lg border-b border-white/10'
         }`}
       />
 
@@ -43,10 +43,10 @@ export const Navbar = () => {
             <img
               src={logo}
               alt="AlbScaling"
-              className={`h-12 md:h-14 w-auto transition-all duration-300 brightness-0 invert ${
+              className={`h-12 md:h-14 w-auto transition-all duration-300 ${
                 isScrolled 
-                  ? 'opacity-100' 
-                  : 'opacity-100 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'
+                  ? 'brightness-100' 
+                  : 'brightness-0 invert'
               }`}
             />
           </button>
@@ -70,7 +70,11 @@ export const Navbar = () => {
 
             <Button
               size="sm"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-6 transition-all duration-300"
+              className={`font-semibold rounded-lg px-6 transition-all duration-300 shadow-lg hover:shadow-xl ${
+                isScrolled
+                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700'
+                  : 'bg-white text-blue-600 hover:bg-blue-50'
+              }`}
               onClick={() => scrollToSection('contact')}
             >
               {t.nav.contact}
@@ -82,7 +86,7 @@ export const Navbar = () => {
             <LanguageToggle />
             <button
               onClick={() => setIsMobileMenuOpen((v) => !v)}
-              className={isScrolled ? 'text-gray-900' : 'text-white'}
+              className={isScrolled ? 'text-gray-800' : 'text-white'}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
@@ -95,39 +99,43 @@ export const Navbar = () => {
           <div
             className={`md:hidden mt-2 rounded-2xl p-4 shadow-xl transition-all ${
               isScrolled
-                ? 'bg-white/90 backdrop-blur-xl'
-                : 'bg-black/40 backdrop-blur-xl'
+                ? 'bg-white/95 backdrop-blur-xl'
+                : 'bg-black/50 backdrop-blur-xl'
             }`}
           >
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={isScrolled ? 'text-gray-900 font-medium' : 'text-white font-medium'}
+                className={`font-medium hover:text-blue-400 transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}
               >
                 {t.nav.home}
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className={isScrolled ? 'text-gray-900 font-medium' : 'text-white font-medium'}
+                className={`font-medium hover:text-blue-400 transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}
               >
                 {t.nav.services}
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className={isScrolled ? 'text-gray-900 font-medium' : 'text-white font-medium'}
+                className={`font-medium hover:text-blue-400 transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}
               >
                 {t.nav.portfolio}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className={isScrolled ? 'text-gray-900 font-medium' : 'text-white font-medium'}
+                className={`font-medium hover:text-blue-400 transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}
               >
                 {t.nav.contact}
               </button>
 
               <Button
                 size="sm"
-                className="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold w-full"
+                className={`mt-2 font-semibold w-full ${
+                  isScrolled
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700'
+                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                }`}
                 onClick={() => scrollToSection('contact')}
               >
                 {t.nav.contact}

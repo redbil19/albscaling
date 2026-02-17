@@ -306,8 +306,8 @@ const translations: Translations = {
           description: 'Shiko rezultatet në javë, jo muaj',
         },
         dataDriven: {
-          title: 'Bazuar në të Dhëna',
-          description: 'Qasja strategjike e mbështetur nga analitika',
+          title: 'Brand Presence në Treg',
+          description: 'Nderto vizibilitetin tuaj me strategji të provuara dhe authentic',
         },
         expertise: {
           title: 'Ekipi i Ekspertëve',
